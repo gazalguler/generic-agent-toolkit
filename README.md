@@ -54,9 +54,66 @@ If your harness is not listed, add this to its **global** MCP settings (not a pr
 }
 ```
 
-Use the real path on that machine. A copy of this snippet lives in `examples/mcp.client.json`. Codex CLI uses TOML (`[mcp_servers.generic-agent-toolkit]` with the same `command` and `args`), and VS Code uses a `servers` key with `"type": "stdio"`.
+Use the real path on that machine. A copy of this snippet lives in `examples/mcp.client.json`. Codex CLI uses TOML (`[mcp_servers.generic-agent-toolkit]` with the same `command` and `args`), and VS Code uses a `servers` key with `"type": "stdio"`. OpenCode Desktop uses a different file and a different shape; see below.
 
 The harness starts this process when a session begins, including when the open project is somewhere else.
+
+### OpenCode Desktop
+
+`npm run setup` does not register OpenCode. The desktop app reads the same global config as the CLI, and that file is often missing until you create it.
+
+| Platform | File |
+| --- | --- |
+| macOS, Linux | `~/.config/opencode/opencode.json` |
+| Windows | `%USERPROFILE%\.config\opencode\opencode.json` |
+
+Check whether the file is there. On macOS or Linux:
+
+```bash
+cat ~/.config/opencode/opencode.json
+```
+
+On Windows (PowerShell):
+
+```powershell
+Get-Content "$env:USERPROFILE\.config\opencode\opencode.json"
+```
+
+If the command prints JSON, the file exists: add the `mcp` entry from below next to the keys you already have. Replacing the whole file drops providers, models, and any other servers.
+
+If it reports that the file does not exist, create the directory and an empty config, then paste the snippet below into it. On macOS or Linux:
+
+```bash
+mkdir -p ~/.config/opencode
+printf '{}\n' > ~/.config/opencode/opencode.json
+```
+
+On Windows (PowerShell):
+
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.config\opencode" | Out-Null
+Set-Content "$env:USERPROFILE\.config\opencode\opencode.json" '{}'
+```
+
+OpenCode does not read the `mcpServers` snippet above. Put the server under `mcp`, set `type` to `local`, and put `node` and the script path together in one `command` array:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "generic-agent-toolkit": {
+      "type": "local",
+      "command": [
+        "node",
+        "/absolute/path/to/generic-agent-toolkit/bin/generic-agent-toolkit.mjs"
+      ],
+      "enabled": true
+    }
+  }
+}
+```
+
+Use the real path on that machine. Quit the desktop app and open it again so it rereads the file. In a session, run `/mcp` and confirm `generic-agent-toolkit` is connected, then ask the agent to call `list_skills`.
 
 Slash commands are optional. Routing happens through tool calls, driven by this server’s instructions and skill descriptions.
 
