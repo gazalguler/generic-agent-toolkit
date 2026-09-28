@@ -138,5 +138,6 @@ This pattern is the **questioning backbone** of the following skills:
 - `get_skill("create-agent-tasks")` — task boundaries and dependency decisions
 - `get_skill("implement-agent-task")` — approach clarification
 - `get_skill("review-agent-task")` — resolving product ambiguity found during review
+- `get_skill("compound-engineering")` — one confirm before writing a keep
 
 Each of those skills defines its own workflow and any question limits. This skill defines _how_ every question within those workflows is asked.

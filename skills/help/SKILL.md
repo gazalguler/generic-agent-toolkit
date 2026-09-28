@@ -24,7 +24,9 @@ This toolkit routes agents from an idea to reviewed implementation. It tells the
 | Break an approved PRD into work | `create-agent-tasks` | codebase and planning tools |
 | Execute one task | `implement-agent-task` | code and connected MCPs |
 | Validate one completed task | `review-agent-task` | code, diff, and test tools |
+| Review current work until it is ready to ship | `multi-agent-review` | reviewer subagents |
 | PR feedback loop | `address-review-feedback` | git MCP |
+| After reviewer agents approve | `compound-engineering` | `gh` for the pull request |
 | Confirm a risky plan | `grill-me` | none |
 | Author a new skill | `create-skill` | none |
 

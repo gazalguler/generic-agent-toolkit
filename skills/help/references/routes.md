@@ -6,4 +6,6 @@
 
 For build work, route in this order: `create-prd` → `create-agent-tasks` → `implement-agent-task` → `review-agent-task`.
 
+`compound-engineering` is not part of that chain. Load it after reviewer agents approve a pull request, not when the pull request opens.
+
 Do not invent requirements or tool inputs. Inspect available context, then ask the user when a material decision remains.

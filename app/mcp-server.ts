@@ -17,7 +17,9 @@ Routing hints:
   - Turn a PRD into work      → create-agent-tasks
   - Execute one task          → implement-agent-task
   - Validate completed work   → review-agent-task
+  - Ready-to-ship review loop → multi-agent-review
   - Pull request feedback     → address-review-feedback
+  - After reviewer approval   → compound-engineering
   - Product docs              → create-prd / clarify-prd
   - Ask the user one decision at a time → grill-me
   - Which skill to pick       → help

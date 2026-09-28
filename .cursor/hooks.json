@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "node skills/compound-engineering/scripts/compound-engineering-stop.mjs",
+        "loop_limit": 1
+      }
+    ]
+  }
+}
