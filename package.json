@@ -11,6 +11,7 @@
     "generic-agent-toolkit": "./bin/generic-agent-toolkit.mjs"
   },
   "scripts": {
+    "setup": "node scripts/setup.mjs",
     "start": "node bin/generic-agent-toolkit.mjs",
     "dev": "node bin/generic-agent-toolkit.mjs",
     "check:skills": "tsx scripts/check-skills.ts",

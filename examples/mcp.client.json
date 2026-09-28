@@ -2,7 +2,8 @@
   "mcpServers": {
     "generic-agent-toolkit": {
       "command": "node",
-      "args": ["/absolute/path/to/generic-agent-toolkit/bin/generic-agent-toolkit.mjs"]
+      "args": ["/absolute/path/to/generic-agent-toolkit/bin/generic-agent-toolkit.mjs"],
+      "enabled": true
     }
   }
 }
