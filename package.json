@@ -8,22 +8,22 @@
     "node": ">=22"
   },
   "bin": {
-    "generic-agent-toolkit": "./app/stdio.ts"
+    "generic-agent-toolkit": "./bin/generic-agent-toolkit.mjs"
   },
   "scripts": {
-    "start": "tsx app/stdio.ts",
-    "dev": "tsx app/stdio.ts",
+    "start": "node bin/generic-agent-toolkit.mjs",
+    "dev": "node bin/generic-agent-toolkit.mjs",
     "check:skills": "tsx scripts/check-skills.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "tsx": "^4.19.4",
     "yaml": "^2.8.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "vitest": "^4.1.7"
   }

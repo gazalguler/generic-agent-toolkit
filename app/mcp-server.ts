@@ -18,7 +18,6 @@ Routing hints:
   - Execute one task          → implement-agent-task
   - Validate completed work   → review-agent-task
   - Pull request feedback     → address-review-feedback
-  - Design files              → create-design-request
   - Product docs              → create-prd / clarify-prd
   - Ask the user one decision at a time → grill-me
   - Which skill to pick       → help

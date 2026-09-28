@@ -20,21 +20,22 @@ You do not keep a daemon running. The harness starts this process for the sessio
 npm install
 ```
 
-Point your harness at stdio:
+Add this to the harness’s **global** MCP settings (not a project file inside this repo). The command does not depend on the folder you have open:
 
 ```json
 {
   "mcpServers": {
     "generic-agent-toolkit": {
-      "command": "npx",
-      "args": ["tsx", "app/stdio.ts"],
-      "cwd": "/absolute/path/to/generic-agent-toolkit"
+      "command": "node",
+      "args": ["/absolute/path/to/generic-agent-toolkit/bin/generic-agent-toolkit.mjs"]
     }
   }
 }
 ```
 
-A copy of this snippet lives in `examples/mcp.client.json`.
+Use the real path on that machine. A copy of this snippet lives in `examples/mcp.client.json`.
+
+The harness starts this process when a session begins, including when the open project is somewhere else. Cursor reads `~/.cursor/mcp.json`. Claude Desktop reads its app config. Other clients use the same `command` / `args` shape in their own global MCP config.
 
 Slash commands are optional. Routing happens through tool calls, driven by this server’s instructions and skill descriptions.
 

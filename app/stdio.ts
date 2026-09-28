@@ -1,4 +1,3 @@
-#!/usr/bin/env npx tsx
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
 import { createRouterServer } from './mcp-server.js'

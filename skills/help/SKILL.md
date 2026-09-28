@@ -25,8 +25,6 @@ This toolkit routes agents from an idea to reviewed implementation. It tells the
 | Execute one task | `implement-agent-task` | code and connected MCPs |
 | Validate one completed task | `review-agent-task` | code, diff, and test tools |
 | PR feedback loop | `address-review-feedback` | git MCP |
-| Analytics event names | `write-analytics` | your analytics docs, not a required MCP |
-| Design ask | `create-design-request` | design MCP if connected |
 | Confirm a risky plan | `grill-me` | none |
 | Author a new skill | `create-skill` | none |
 
