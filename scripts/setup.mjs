@@ -158,7 +158,7 @@ function installDeps() {
   console.log(`\n→ npm install in ${ROOT}`)
   if (DRY_RUN) return
   const npm = OS === 'win32' ? 'npm.cmd' : 'npm'
-  const res = spawnSync(npm, ['install', '--no-fund', '--no-audit'], { cwd: ROOT, stdio: 'inherit' })
+  const res = spawnSync(npm, ['install', '--no-fund', '--no-audit'], { cwd: ROOT, stdio: 'inherit', shell: OS === 'win32' })
   if (res.status !== 0) fail('npm install failed')
 }
 
